@@ -1,0 +1,17 @@
+[Unit]
+Description=SOCKS proxy server
+After=network.target
+
+[Service]
+Type=simple
+User=eproxyd
+Group=eproxyd
+UMask=0077
+MemoryLimit=104857600
+Environment="HOME=/var/lib/eproxyd"
+ExecStart=/usr/sbin/eproxyd.escript
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
